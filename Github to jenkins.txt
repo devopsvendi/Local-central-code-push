@@ -1,0 +1,55 @@
+new create job----->
+
+Freestyle project----->
+
+git--->
+
+
+HTTP url--->
+
+Credentials add ----->
+
+
+created token in github---->
+
+
+and add all options in Jenkins 
+
+Goals --->clean install
+
+
+
+Jenkins #4 | Integrate GitHub private Repository with Jenkins job using Personal Access Token
+
+
+Jenkins #7 | How to create Maven Job in Jenkins
+
+
+Artifactory Jenkins Integration | Integrate Artifactory & Jenkins | Jenkins Integration Artifactory
+
+Method 2: Using the Command Line
+Before we get down to the steps, make sure you know your GitHub username and the clone URL for the external repository.
+
+The following is how you import a Git repository using the command line. 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Create a new repository on GitHub. This will be the new repository where you will import your external git repository.
+Make a “bare“ clone of the repository using the external clone URL on the command line. Doing this will create a full copy of the data (without a working directory for editing files) and deliver a clean export of all the old data.
+
+$ git clone –bare https://external-host.com/extuser/repo.git
+
+# Makes a bare clone of the external repository in a local directory
+
+3. Next, push the locally cloned repository to GitHub using the ‘mirror‘ option. This will ensure all references (tags, branches) get copied to the imported repository.
+
+$ cd repo.git
+
+$ git push –mirror https://github.com/ghuser/repo.git
+
+# Pushes the mirror to the new repository on GitHub.com
+
+4. Remove the temporary local repository.
+
+$ cd ..
+
+$ rm -rf repo.git
